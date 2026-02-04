@@ -16,7 +16,7 @@ export default function Home() {
         <title>Raiiar - Tick-Tac-Toe</title>
         <link rel="stylesheet" href="style.css" />
       </Head>
-            <iframe src="https://www.raiiar.com.ng/ox" frameBorder="0" scrolling="no" width="100%" height="540px" />
+            <iframe src="https://www.raiiarcom.io/ox" frameBorder="0" scrolling="no" width="100%" height="540px" />
       <footer id="footer">
       <a href="http://www.raiiar.com.ng">
       <font size="4" color="GREEN">
