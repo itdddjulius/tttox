@@ -11,11 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>Raiiar - Tick-Tac-Toe</title>
         <link rel="stylesheet" href="style.css" />
       </Head>
-            <iframe src="https://www.raiiar.com.ng/ox" frameborder="0" scrolling="no" width="100%" height="540px" />
+            <iframe src="https://www.raiiar.com.ng/ox" frameBorder="0" scrolling="no" width="100%" height="540px" />
       <footer id="footer">
       <a href="http://www.raiiar.com.ng">
       <font size="4" color="GREEN">
