@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Script from 'next/script'
 
 export default function Home() {
   return (
@@ -22,7 +23,11 @@ export default function Home() {
       Raiiar - Tic-Tac-Toe &copy; <strong>It_Ddd - App Development - Another website designed by Julius Olatokunbo&nbsp;</strong></font>
       </a>
       </footer>
-      <script src="../styles/app.js"></script>
+      <Script
+        src="../styles/app.js"
+        strategy="afterInteractive"
+      />
+
     </div>
   )
 }
