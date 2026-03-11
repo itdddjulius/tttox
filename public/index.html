@@ -1,106 +1,953 @@
-<!DOCTYPE html>
-		<!--
-		// === J.O. ===============================================================================================================================
-		// === MODULE - index.html - (Affordable Housing Construction JS v1.0)
-		// ===
-		// === AUTHOR - Julius Olatokunbo
-		// ===
-		// === REASON - Affordable Housing Construction Requires an online-quotation system
-		// ===        - Index.Html is the ReelSpin algorithm in JS
-		// ===
-		// === HISTORY- ===========================================================================================================================
-		// === J.O. 10-APR-2014 - v1.0 - Initial flash param loading to establish communication with server, trace output to console
-		// === J.O. 11-APR-2014 - v1.0 - Alert panel, Logo and Alert Button modification with all text accessed from Locale file
-		// === J.O. 14-APR-2014 - v1.0 - Param interpretation
-		// === J.O. 15-APR-2014 - v1.0 - Initial flash param loading to establish communication with server, trace output to console
-		// === J.O. 16-APR-2014 - v1.0 - Configuring (n) reel slot, implementing with view.spin.reel in (.../spin/reel/index.html)
-		// === J.O. 17-APR-2014 - v1.0 - Configuring resolution of symbols to assure (Fit-To-Screen) determined by calculated (ScreenSize)
-		// === J.O. 22-APR-2014 - v1.0 - Configuring Audio
-		// === J.O. 28-APR-2014 - v1.0 - Configuring Winline Graphics
-		// === J.O. 30-APR-2014 - v1.0 - Configuring interchangeable css for scalability
-		// === J.O. 01-MAY-2014 - v1.0 - Configuring SLOTS in relation to control assets LINES, BETperLINE, WIN, GAMBLE & PLAY
-		// === J.O. 02-MAY-2014 - v1.0 - Configuring Locale messaging for ALL assets, rework CSS, use compile.js
-		// === J.O. 06-MAY-2014 - v1.0 - determine browser for CBO, and resize scaling
-		// === J.O. 08-MAY-2014 - v1.0 - determine which CSS according to viewport dimension
-    	// === J.O. 14-MAY-2014 - v1.0 - Ensure AlertPanel.butb opensURL ( _CONST_EOS_MOBILE ) - Ensure we access js/eos_mobile.js, js/eos_slots.js
-    	// === J.O. 15-MAY-2014 - v1.0 - Ensure we apply CSS for <UL><LI> EOS Slot
-    	// === J.O. 16-MAY-2014 - v1.0 - Ensure EOS_SLIDER_'s are positioned using %
-    	// === J.O. 20-MAY-2014 - v1.0 - Implement EOS_help.html
-    	// === J.O. 22-MAY-2014 - v1.0 - Implement Audio, Animations & _EosSetReelSolution
-    	// === J.O. 23-MAY-2014 - v1.0 - Modify EOS_help.html
-    	// === J.O. 03-JUN-2014 - v1.0 - Adjust viewportDimension() to accommodate any specific css given current screen viewport
-    	// === J.O. 04-JUN-2014 - v1.0 - Ensure all EOS_Help txt is extracted from LOCALE file.
-    	// === J.O. 05-JUN-2014 - v1.0 - Configure AUTO Spin functionality
-    	// === J.O. 16-JUN-2014 - v1.0 - Complete Gamble Screen Functionality
-    	// === J.O. 01-JUL-2014 - v1.0 - Keypress routine to determine if SPACEBAR depressed to activate SPIN
-	  	// === J.O. ===============================================================================================================================
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-		-->
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-    <title>Raiiar - Tick-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clients & Services</title>
+
+  <!-- Bootstrap (grid + modal) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Tailwind (utility) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --jo-bg:#000;
+      --jo-text:#fff;
+      --jo-green:#00c853;
+      --jo-border:rgba(255,255,255,.14);
+      --jo-card:rgba(255,255,255,.06);
+      --jo-nav:rgba(0,0,0,.78);
+      --jo-shadow:0 10px 35px rgba(0,0,0,.35);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ background:var(--jo-bg); color:var(--jo-text); }
+
+    .btn-jo{
+      background: var(--jo-green) !important;
+      color:#000 !important;
+      font-weight:800 !important;
+      border:none !important;
+    }
+    .btn-jo:hover{ filter:brightness(1.1); }
+
+    .btn-outline-jo{
+      border:1px solid var(--jo-green) !important;
+      color:var(--jo-green) !important;
+      background:transparent !important;
+      font-weight:800 !important;
+    }
+    .btn-outline-jo:hover{
+      background: rgba(0,200,83,.12) !important;
+      color:#fff !important;
+    }
+
+    .jo-muted{ opacity:.78; }
+    .jo-link{ color:#fff; text-decoration:none; }
+    .jo-link:hover{ color:var(--jo-green); }
+    .jo-divider{ height:1px; background:var(--jo-border); }
+
+    .jo-card{
+      background: var(--jo-card);
+      border:1px solid var(--jo-border);
+      border-radius:18px;
+      box-shadow: var(--jo-shadow);
+    }
+
+    .jo-nav{
+      backdrop-filter: blur(10px);
+      background: var(--jo-nav);
+      border-bottom: 1px solid var(--jo-border);
+    }
+
+    .h-accordion{
+      display:flex;
+      gap:12px;
+      width:100%;
+      align-items:stretch;
+      min-height: 460px;
+    }
+
+    .h-panel{
+      position:relative;
+      flex: 1 1 0;
+      border-radius:18px;
+      border:1px solid var(--jo-border);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      box-shadow: var(--jo-shadow);
+      cursor:pointer;
+      transition: flex 260ms ease, transform 260ms ease, border-color 260ms ease;
+    }
+
+    .h-panel:hover{
+      transform: translateY(-2px);
+      border-color: rgba(0,200,83,.45);
+    }
+
+    .h-panel.active{
+      flex: 6 1 0;
+      border-color: rgba(0,200,83,.55);
+      transform: translateY(-2px);
+    }
+
+    .h-cover{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 420px at 30% 10%, rgba(0,200,83,.12), transparent 60%),
+        radial-gradient(700px 380px at 80% 80%, rgba(120,180,255,.10), transparent 58%),
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65));
+      pointer-events:none;
+    }
+
+    .h-strip{
+      position:absolute;
+      top:0; bottom:0; left:0;
+      width: 64px;
+      border-right:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 6px;
+      z-index:1;
+    }
+
+    .h-strip span{
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing:.06em;
+      font-weight:900;
+      text-transform: uppercase;
+      opacity:.95;
+    }
+
+    .h-content{
+      position:relative;
+      z-index:2;
+      height:100%;
+      padding: 18px 18px 18px 84px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .h-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .h-title{
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing:.01em;
+      margin:0;
+    }
+
+    .h-kicker{
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      border:1px solid var(--jo-border);
+      background: rgba(255,255,255,.04);
+      font-weight:800;
+      font-size:.85rem;
+      opacity:.9;
+    }
+
+    .h-body{
+      overflow:hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 260ms ease, opacity 240ms ease;
+    }
+
+    .h-panel.active .h-body{
+      max-height: 1200px;
+      opacity: 1;
+    }
+
+    .h-actions{
+      margin-top:auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:12px;
+    }
+
+    .h-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .tag{
+      font-size:.8rem;
+      padding:.22rem .55rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      opacity:.9;
+    }
+
+    .section-admin{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .v-accordion{ display:none; }
+
+    .v-item{
+      border:1px solid var(--jo-border);
+      border-radius:16px;
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      box-shadow: var(--jo-shadow);
+    }
+
+    .v-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 14px;
+      cursor:pointer;
+      user-select:none;
+      gap:12px;
+    }
+
+    .v-head h3{ margin:0; font-weight:900; font-size:1.05rem; }
+
+    .v-body{
+      display:none;
+      padding: 0 14px 14px 14px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+
+    .v-item.open .v-body{ display:block; }
+
+    .v-admin{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .accordion-nav{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .form-control, .form-select, textarea{
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid rgba(255,255,255,.16) !important;
+      color:#fff !important;
+    }
+
+    .form-control:focus, textarea:focus, .form-select:focus{
+      box-shadow: 0 0 0 .2rem rgba(0,200,83,.18) !important;
+      border-color: rgba(0,200,83,.45) !important;
+    }
+
+    textarea{
+      min-height: 280px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .code-help{
+      font-size:.9rem;
+      opacity:.8;
+    }
+
+    @media (max-width: 991px){
+      .h-accordion{ display:none; }
+      .v-accordion{ display:flex; flex-direction:column; gap:12px; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container"  style="background: BLACK; color: WHITE;">
-        <h1>Raiiar - Tic-Tac-Toe</h1>
-        <div class="play-area">
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg jo-nav sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand text-white fw-bold" href="#top">
+        <i class="fa-solid fa-briefcase me-2" style="color:var(--jo-green)"></i>Clients & Services
+      </a>
 
-        </div>
-        <h2 id="winner"></h2>
-        <button onclick="reset_board()" style="color: WHITE;">RESET</button>
-      <footer id="footer">
-        <a href="http://www.raiiar.com.ng">
-        <font size="4" color="GREEN">
-        Raiiar - Tic-Tac-Toe &copy; <strong>It_Ddd - App Development - Another website designed by Julius Olatokunbo&nbsp;</strong></font>
-        </a>
-      </footer>
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link text-white jo-muted" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link text-white jo-muted" href="#about">About</a></li>
+          <li class="nav-item">
+            <button class="btn btn-outline-jo rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+              <i class="fa-regular fa-envelope me-2"></i>Contact
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
-    <script src="app.js"></script>
-</body>
+  </nav>
 
+  <div id="top"></div>
+
+  <!-- Hero -->
+  <header class="container pt-5 pb-4">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-8">
+        <div class="inline-flex items-center gap-2 px-3 py-2 rounded-full border" style="border-color:var(--jo-border); background:rgba(255,255,255,.04);">
+          <i class="fa-solid fa-layer-group" style="color:var(--jo-green)"></i>
+          <span class="fw-bold">Editable Horizontal Accordion</span>
+          <span class="jo-muted">• update and save each section</span>
+        </div>
+
+        <h1 class="display-5 fw-bold mt-3 mb-2">Clients & Services</h1>
+        <p class="lead jo-muted mb-4">
+          A single-page portfolio with a <b>horizontal expandable menu</b>, sticky navigation, smooth scrolling,
+          editable accordion sections, and accordion navigation controls.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#menu" class="btn btn-jo rounded-pill px-4 py-2">
+            <i class="fa-solid fa-circle-play me-2"></i>Open Menu
+          </a>
+          <button class="btn btn-outline-jo rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <i class="fa-regular fa-envelope me-2"></i>Contact
+          </button>
+        </div>
+
+        <div class="jo-muted mt-3 small">
+          <i class="fa-solid fa-pen-to-square me-2"></i>
+          Every accordion tab now has <b>UPDATE</b> and <b>SAVE</b> controls. UPDATE opens a modal editor in either
+          HTML or TEXT mode. SAVE persists the edited content in the browser session storage.
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="jo-card p-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="fw-bold">Quick Actions</div>
+            <i class="fa-solid fa-bolt jo-muted"></i>
+          </div>
+          <div class="jo-divider my-3"></div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-jo rounded-pill" href="#menu">
+              <i class="fa-solid fa-grip me-2"></i>Jump to Menu
+            </a>
+            <a class="btn btn-outline-jo rounded-pill" href="#about">
+              <i class="fa-solid fa-circle-info me-2"></i>About Section
+            </a>
+            <button class="btn btn-jo rounded-pill" data-bs-toggle="modal" data-bs-target="#contactModal">
+              <i class="fa-regular fa-envelope me-2"></i>Open Contact
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu / Accordion -->
+  <main class="container pb-5">
+    <section id="menu" class="pt-3">
+      <div class="jo-card p-4 p-lg-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <h2 class="h3 fw-bold mb-1">Menu</h2>
+            <p class="jo-muted mb-0">Click a panel to expand. On mobile, it becomes a vertical accordion.</p>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2">
+            <button id="expandAllBtn" class="btn btn-outline-jo rounded-pill px-4">
+              <i class="fa-solid fa-up-right-and-down-left-from-center me-2"></i>Expand first
+            </button>
+
+            <button id="addMenuBtn" class="btn btn-jo rounded-pill px-4">
+              <i class="fa-solid fa-plus me-2"></i>New Menu
+            </button>
+
+            <button id="collapseAllBtn" class="btn btn-outline-jo rounded-pill px-4">
+              <i class="fa-solid fa-compress me-2"></i>Collapse
+            </button>
+          </div>
+        </div>
+
+        <!-- Desktop Horizontal Accordion -->
+        <div id="hAccordion" class="h-accordion"></div>
+
+        <!-- Mobile Vertical Accordion -->
+        <div id="vAccordion" class="v-accordion"></div>
+      </div>
+    </section>
+
+    <!-- Next / Prev Controls -->
+    <section class="pt-4">
+      <div class="accordion-nav">
+        <button id="prevBtn" class="btn btn-outline-jo rounded-pill px-4">
+          <i class="fa-solid fa-arrow-left me-2"></i>PREV
+        </button>
+
+        <button id="nextBtn" class="btn btn-jo rounded-pill px-4">
+          NEXT<i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="pt-4 mt-4">
+      <div class="jo-card p-4 p-lg-5">
+        <h2 class="h4 fw-bold mb-2">About</h2>
+        <p class="jo-muted mb-0">
+          Replace this with your “About” content (you can also make this one of the accordion panels).
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container py-4 mt-4 border-top" style="border-color:var(--jo-border)!important;">
+      <a class="jo-link" href="https://www.raiiarcom.io" target="_blank" rel="noreferrer">
+        Another Website by Julius Olatokunbo
+      </a>
+    </footer>
+  </main>
+
+  <!-- Section Editor Modal -->
+  <div class="modal fade" id="sectionEditorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="background:#050505; border:1px solid var(--jo-border); border-radius:18px;">
+        <div class="modal-header" style="border-bottom:1px solid var(--jo-border);">
+          <h5 class="modal-title text-white fw-bold">
+            <i class="fa-solid fa-pen-to-square me-2" style="color:var(--jo-green)"></i>Edit Accordion Section
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="editSectionIndex">
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Title</label>
+              <input id="editTitle" class="form-control" type="text">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Kicker</label>
+              <input id="editKicker" class="form-control" type="text">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Icon (FontAwesome class)</label>
+              <input id="editIcon" class="form-control" type="text" placeholder="fa-solid fa-briefcase">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Tags (comma separated)</label>
+              <input id="editTags" class="form-control" type="text" placeholder="Web, Mobile, AI">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Edit Mode</label>
+              <select id="editMode" class="form-select">
+                <option value="html">HTML</option>
+                <option value="text">TEXT</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 d-flex align-items-end">
+              <div class="code-help">
+                In <b>HTML</b> mode you can paste markup. In <b>TEXT</b> mode plain text is converted to paragraphs with line breaks.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Section Body</label>
+            <textarea id="editBody" class="form-control" rows="14"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="border-top:1px solid var(--jo-border);">
+          <button class="btn btn-outline-jo rounded-pill px-4" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button id="saveModalBtn" class="btn btn-jo rounded-pill px-4">
+            <i class="fa-solid fa-floppy-disk me-2"></i>SAVE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal (iframe) -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content" style="background:#050505; border:1px solid var(--jo-border); border-radius:18px;">
+        <div class="modal-header" style="border-bottom:1px solid var(--jo-border);">
+          <h5 class="modal-title text-white fw-bold">
+            <i class="fa-regular fa-envelope me-2" style="color:var(--jo-green)"></i>Contact
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9" style="min-height:70vh;">
+            <iframe
+              src="https://www.raiiarcomio.com/contact2"
+              title="Contact"
+              style="border:0; background:#000;"
+              referrerpolicy="no-referrer"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="modal-footer" style="border-top:1px solid var(--jo-border);">
+          <a class="btn btn-jo rounded-pill px-4" href="https://www.raiiarcom.io/contact" target="_blank" rel="noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open in new tab
+          </a>
+          <button class="btn btn-outline-jo rounded-pill px-4" data-bs-dismiss="modal">
+            <i class="fa-solid fa-xmark me-2"></i>Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const STORAGE_KEY = "jo_clients_services_sections_v1";
+
+    const defaultSections = [
+      {
+        id: "services",
+        icon: "fa-solid fa-screwdriver-wrench",
+        title: "Services",
+        kicker: "What I do",
+        tags: ["Web", "Mobile", "AI", "DevOps"],
+        body: `
+          <p class="jo-muted mb-2">
+            Paste your “Services” content here from <code>/menu</code>.
+          </p>
+          <ul class="jo-muted mb-0">
+            <li>Service item 1</li>
+            <li>Service item 2</li>
+            <li>Service item 3</li>
+          </ul>
+        `
+      },
+      {
+        id: "projects",
+        icon: "fa-solid fa-diagram-project",
+        title: "Projects",
+        kicker: "Selected work",
+        tags: ["Rails", "Nuxt", "React", "K8s"],
+        body: `
+          <p class="jo-muted mb-2">
+            Paste your “Projects” content here (cards, links, descriptions).
+          </p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03);">
+                <div class="fw-bold">Project A</div>
+                <div class="jo-muted">Short description…</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03);">
+                <div class="fw-bold">Project B</div>
+                <div class="jo-muted">Short description…</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: "clients",
+        icon: "fa-solid fa-handshake",
+        title: "Clients",
+        kicker: "Who I work with",
+        tags: ["Startups", "SMEs", "Enterprise"],
+        body: `
+          <p class="jo-muted mb-2">
+            Add your clients, sectors, and engagement types here.
+          </p>
+          <ul class="jo-muted mb-0">
+            <li>Client Group 1</li>
+            <li>Client Group 2</li>
+            <li>Client Group 3</li>
+          </ul>
+        `
+      },
+      {
+        id: "contact-panel",
+        icon: "fa-regular fa-envelope",
+        title: "Contact",
+        kicker: "Let’s talk",
+        tags: ["Email", "Consulting", "Collaboration"],
+        body: `
+          <p class="jo-muted mb-3">
+            Use the button below to open the contact form in a modal.
+          </p>
+          <button class="btn btn-jo rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <i class="fa-regular fa-envelope me-2"></i>Open Contact Form
+          </button>
+        `
+      }
+    ];
+
+    let sections = loadSections();
+    let activeIndex = 0;
+
+    const hAccordion = document.getElementById("hAccordion");
+    const vAccordion = document.getElementById("vAccordion");
+    const expandAllBtn = document.getElementById("expandAllBtn");
+    const collapseAllBtn = document.getElementById("collapseAllBtn");
+    const addMenuBtn = document.getElementById("addMenuBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const editSectionIndex = document.getElementById("editSectionIndex");
+    const editTitle = document.getElementById("editTitle");
+    const editKicker = document.getElementById("editKicker");
+    const editIcon = document.getElementById("editIcon");
+    const editTags = document.getElementById("editTags");
+    const editBody = document.getElementById("editBody");
+    const editMode = document.getElementById("editMode");
+    const saveModalBtn = document.getElementById("saveModalBtn");
+
+    const editorModal = new bootstrap.Modal(document.getElementById("sectionEditorModal"));
+
+    function loadSections(){
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return structuredClone(defaultSections);
+      try {
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) && parsed.length ? parsed : structuredClone(defaultSections);
+      } catch (e) {
+        return structuredClone(defaultSections);
+      }
+    }
+
+    function saveSectionsToStorage(){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sections));
+    }
+
+    function escId(s){
+      return String(s).replace(/[^a-zA-Z0-9\-_]/g, "");
+    }
+
+    function textToHtml(text){
+      return String(text)
+        .split(/\n{2,}/)
+        .map(block => `<p class="jo-muted mb-2">${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
+        .join("");
+    }
+
+    function htmlToText(html){
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+      return (temp.textContent || temp.innerText || "").trim();
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function setActiveByIndex(idx){
+      if (!sections.length) return;
+      activeIndex = Math.max(0, Math.min(idx, sections.length - 1));
+
+      const panels = [...hAccordion.querySelectorAll(".h-panel")];
+      panels.forEach((p, i) => {
+        const isActive = i === activeIndex;
+        p.classList.toggle("active", isActive);
+        p.setAttribute("aria-expanded", isActive ? "true" : "false");
+      });
+
+      const items = [...vAccordion.querySelectorAll(".v-item")];
+      items.forEach((item, i) => {
+        item.classList.toggle("open", i === activeIndex);
+        const head = item.querySelector(".v-head");
+        if (head) head.setAttribute("aria-expanded", i === activeIndex ? "true" : "false");
+      });
+    }
+
+    function collapseAll(){
+      const panels = [...hAccordion.querySelectorAll(".h-panel")];
+      panels.forEach(p => {
+        p.classList.remove("active");
+        p.setAttribute("aria-expanded", "false");
+      });
+
+      const items = [...vAccordion.querySelectorAll(".v-item")];
+      items.forEach(item => {
+        item.classList.remove("open");
+        const head = item.querySelector(".v-head");
+        if (head) head.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function openEditor(index){
+      const s = sections[index];
+      if (!s) return;
+
+      editSectionIndex.value = index;
+      editTitle.value = s.title || "";
+      editKicker.value = s.kicker || "";
+      editIcon.value = s.icon || "fa-solid fa-folder";
+      editTags.value = (s.tags || []).join(", ");
+      editMode.value = "html";
+      editBody.value = s.body || "";
+
+      editorModal.show();
+    }
+
+    function render(){
+      hAccordion.innerHTML = sections.map((s, idx) => {
+        const sid = escId(s.id || ("sec" + idx));
+        return `
+          <article class="h-panel ${idx===activeIndex ? "active" : ""}" data-index="${idx}" data-id="${sid}" tabindex="0" role="button" aria-expanded="${idx===activeIndex ? "true" : "false"}">
+            <div class="h-cover"></div>
+
+            <div class="h-strip">
+              <span>${s.title}</span>
+            </div>
+
+            <div class="h-content">
+              <div class="h-top">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="${s.icon}" style="color:var(--jo-green)"></i>
+                  <h3 class="h-title">${s.title}</h3>
+                </div>
+
+                <span class="h-kicker">
+                  <i class="fa-solid fa-circle-dot" style="color:var(--jo-green)"></i>${s.kicker || "Section"}
+                </span>
+              </div>
+
+              <div class="section-admin">
+                <button class="btn btn-outline-jo rounded-pill px-3 btn-sm update-btn" data-index="${idx}" type="button">
+                  <i class="fa-solid fa-pen me-2"></i>UPDATE
+                </button>
+                <button class="btn btn-jo rounded-pill px-3 btn-sm save-btn" data-index="${idx}" type="button">
+                  <i class="fa-solid fa-floppy-disk me-2"></i>SAVE
+                </button>
+              </div>
+
+              <div class="h-body">
+                <div class="jo-divider my-2"></div>
+                ${s.body}
+                <div class="h-actions">
+                  <div class="h-tags">
+                    ${(s.tags||[]).slice(0,6).map(t => `<span class="tag">${t}</span>`).join("")}
+                  </div>
+                  <a class="btn btn-outline-jo rounded-pill px-3" href="#${sid}">
+                    <i class="fa-solid fa-link me-2"></i>Link
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      vAccordion.innerHTML = sections.map((s, idx) => {
+        const sid = escId(s.id || ("sec" + idx));
+        return `
+          <div class="v-item ${idx===activeIndex ? "open" : ""}" id="${sid}">
+            <div class="v-head" role="button" tabindex="0" aria-expanded="${idx===activeIndex ? "true" : "false"}" data-index="${idx}">
+              <div class="d-flex align-items-center gap-2">
+                <i class="${s.icon}" style="color:var(--jo-green)"></i>
+                <h3>${s.title}</h3>
+              </div>
+              <i class="fa-solid fa-chevron-down jo-muted"></i>
+            </div>
+
+            <div class="v-body">
+              <div class="pt-3">${s.body}</div>
+
+              <div class="mt-3 d-flex flex-wrap gap-2">
+                ${(s.tags||[]).slice(0,6).map(t => `<span class="tag">${t}</span>`).join("")}
+              </div>
+
+              <div class="v-admin">
+                <button class="btn btn-outline-jo rounded-pill px-3 btn-sm update-btn" data-index="${idx}" type="button">
+                  <i class="fa-solid fa-pen me-2"></i>UPDATE
+                </button>
+                <button class="btn btn-jo rounded-pill px-3 btn-sm save-btn" data-index="${idx}" type="button">
+                  <i class="fa-solid fa-floppy-disk me-2"></i>SAVE
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      wire();
+    }
+
+    function wire(){
+      hAccordion.querySelectorAll(".h-panel").forEach(panel => {
+        panel.addEventListener("click", (e) => {
+          if (e.target.closest(".update-btn") || e.target.closest(".save-btn") || e.target.closest("a") || e.target.closest("button")) return;
+          const idx = Number(panel.dataset.index);
+          setActiveByIndex(idx);
+        });
+
+        panel.addEventListener("keydown", (e) => {
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            const idx = Number(panel.dataset.index);
+            setActiveByIndex(idx);
+          }
+        });
+      });
+
+      vAccordion.querySelectorAll(".v-item").forEach((item, idx) => {
+        const head = item.querySelector(".v-head");
+        head.addEventListener("click", () => {
+          setActiveByIndex(idx);
+        });
+
+        head.addEventListener("keydown", (e) => {
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            setActiveByIndex(idx);
+          }
+        });
+      });
+
+      document.querySelectorAll(".update-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openEditor(Number(btn.dataset.index));
+        });
+      });
+
+      document.querySelectorAll(".save-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          saveSectionsToStorage();
+          btn.innerHTML = `<i class="fa-solid fa-check me-2"></i>SAVED`;
+          setTimeout(() => {
+            btn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>SAVE`;
+          }, 1200);
+        });
+      });
+    }
+
+    editMode.addEventListener("change", () => {
+      const idx = Number(editSectionIndex.value);
+      const section = sections[idx];
+      if (!section) return;
+
+      if (editMode.value === "text") {
+        editBody.value = htmlToText(editBody.value || section.body || "");
+      } else {
+        if (section.body && editBody.value === htmlToText(section.body)) {
+          editBody.value = section.body;
+        }
+      }
+    });
+
+    saveModalBtn.addEventListener("click", () => {
+      const idx = Number(editSectionIndex.value);
+      const current = sections[idx];
+      if (!current) return;
+
+      const title = editTitle.value.trim() || "Untitled";
+      const kicker = editKicker.value.trim() || "Section";
+      const icon = editIcon.value.trim() || "fa-solid fa-folder";
+      const tags = editTags.value
+        .split(",")
+        .map(t => t.trim())
+        .filter(Boolean);
+
+      const rawBody = editBody.value;
+      const body = editMode.value === "text" ? textToHtml(rawBody) : rawBody;
+
+      sections[idx] = {
+        ...current,
+        title,
+        kicker,
+        icon,
+        tags,
+        body,
+        id: escId(current.id || title.toLowerCase().replace(/\s+/g, "-")) || `section-${idx}`
+      };
+
+      saveSectionsToStorage();
+      render();
+      setActiveByIndex(idx);
+      editorModal.hide();
+    });
+
+    expandAllBtn.addEventListener("click", () => {
+      setActiveByIndex(0);
+      document.getElementById("menu")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+
+    collapseAllBtn.addEventListener("click", () => collapseAll());
+
+    addMenuBtn.addEventListener("click", () => {
+      const nextIndex = sections.length + 1;
+      sections.push({
+        id: `new-menu-${nextIndex}`,
+        icon: "fa-solid fa-folder-plus",
+        title: `New Menu ${nextIndex}`,
+        kicker: "New Section",
+        tags: ["New", "Editable"],
+        body: `
+          <p class="jo-muted mb-2">
+            Add your new menu content here.
+          </p>
+          <p class="jo-muted mb-0">
+            Click UPDATE to edit this section as HTML or TEXT.
+          </p>
+        `
+      });
+      saveSectionsToStorage();
+      render();
+      setActiveByIndex(sections.length - 1);
+      document.getElementById("menu")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (!sections.length) return;
+      const newIndex = activeIndex <= 0 ? sections.length - 1 : activeIndex - 1;
+      setActiveByIndex(newIndex);
+      document.getElementById("menu")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (!sections.length) return;
+      const newIndex = activeIndex >= sections.length - 1 ? 0 : activeIndex + 1;
+      setActiveByIndex(newIndex);
+      document.getElementById("menu")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+
+    render();
+    setActiveByIndex(activeIndex);
+  </script>
+</body>
 </html>
